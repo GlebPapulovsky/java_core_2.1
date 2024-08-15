@@ -5,7 +5,7 @@ public class Company {
     protected String title;
     protected int debit = 0;
     protected int credit = 0;
-    TaxSystem taxSystem;
+    protected TaxSystem taxSystem;
 
 
     Company(String title, TaxSystem taxSystem) {
@@ -51,6 +51,7 @@ public class Company {
         return credit;
 
     }
+    public TaxSystem getTaxSystem(){return this.taxSystem;}
 
     public void setCredit(int credit) {
         this.credit = credit;
@@ -59,5 +60,7 @@ public class Company {
     public void setTaxSystem(TaxSystem taxSystem) {
         this.taxSystem = taxSystem;
     }
+
+
 
 }

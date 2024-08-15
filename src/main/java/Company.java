@@ -51,7 +51,10 @@ public class Company {
         return credit;
 
     }
-    public TaxSystem getTaxSystem(){return this.taxSystem;}
+
+    public TaxSystem getTaxSystem() {
+        return this.taxSystem;
+    }
 
     public void setCredit(int credit) {
         this.credit = credit;
@@ -60,7 +63,6 @@ public class Company {
     public void setTaxSystem(TaxSystem taxSystem) {
         this.taxSystem = taxSystem;
     }
-
 
 
 }

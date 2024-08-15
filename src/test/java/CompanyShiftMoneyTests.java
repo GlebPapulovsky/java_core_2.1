@@ -16,13 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 public class CompanyShiftMoneyTests {
 
-    Company companyTaxSystemFirst=new Company("test1", new TaxSystemFirst());
-    Company companyTaxSystemSecond=new Company("test2", new TaxSystemSecond());
-
+    Company companyTaxSystemFirst = new Company("test1", new TaxSystemFirst());
+    Company companyTaxSystemSecond = new Company("test2", new TaxSystemSecond());
 
 
     @AfterEach
-    public  void afterEachSetZero(){
+    public void afterEachSetZero() {
         companyTaxSystemFirst.setCredit(0);
         companyTaxSystemFirst.setDebit(0);
 
@@ -30,20 +29,22 @@ public class CompanyShiftMoneyTests {
         companyTaxSystemSecond.setDebit(0);
 
     }
+
     @MethodSource("testShiftMoneyParams")//arrange
     @ParameterizedTest
-    public void testShiftMoney(int param){
+    public void testShiftMoney(int param) {
 
         //assert
-        assertDoesNotThrow(()->/*act*/companyTaxSystemFirst.shiftMoney(param));
-        assertDoesNotThrow(()->/*act*/companyTaxSystemSecond.shiftMoney(param));
+        assertDoesNotThrow(() ->/*act*/companyTaxSystemFirst.shiftMoney(param));
+        assertDoesNotThrow(() ->/*act*/companyTaxSystemSecond.shiftMoney(param));
     }
-    public static Stream<Integer> testShiftMoneyParams(){
+
+    public static Stream<Integer> testShiftMoneyParams() {
         return Stream.of(-1,
                 0,
                 1,
                 4000000,
-               -40000000,
+                -40000000,
                 200000,
                 300000000);
     }

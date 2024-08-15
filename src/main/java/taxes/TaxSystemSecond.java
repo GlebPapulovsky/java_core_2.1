@@ -13,6 +13,6 @@ public class TaxSystemSecond extends TaxSystem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         final TaxSystemSecond that = (TaxSystemSecond) o;
-        return Objects.equals(((TaxSystemSecond) o).calcTaxFor(1000,1000), new TaxSystemSecond().calcTaxFor(1000,1000));
+        return Objects.equals(((TaxSystemSecond) o).calcTaxFor(1000, 1000), new TaxSystemSecond().calcTaxFor(1000, 1000));
     }
 }

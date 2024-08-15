@@ -10,35 +10,37 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class CompanyPayTaxesTests {
-    Company company=new Company("test", new TaxSystem());
+    Company company = new Company("test", new TaxSystem());
 
     @AfterEach
-    public  void afterEachSetZero(){
+    public void afterEachSetZero() {
         company.setCredit(0);
         company.setCredit(0);
     }
+
     @MethodSource("testPayTaxesParam")
     @ParameterizedTest
-    public void testPayTaxes(int debit,int credit ){
+    public void testPayTaxes(int debit, int credit) {
 
         //act
         company.setDebit(debit);
         company.setCredit(credit);
         //assert
-        Assertions.assertDoesNotThrow(()->company.payTaxes());
+        Assertions.assertDoesNotThrow(() -> company.payTaxes());
     }
-    public static Stream<Arguments> testPayTaxesParam(){
+
+    public static Stream<Arguments> testPayTaxesParam() {
         return Stream.of(
-                Arguments.of(12,2),
-                Arguments.of(0,2),
-                Arguments.of(-1,2),
-                Arguments.of(2,-1),
-                Arguments.of(0,0),
-                Arguments.of(2,5),
-                Arguments.of(-100,100),
-                Arguments.of(-100,-100),
-                Arguments.of(44,0),
-                Arguments.of(-132,0),
-                Arguments.of(0,-44));
+                Arguments.of(12, 2),
+                Arguments.of(0, 2),
+                Arguments.of(-1, 2),
+                Arguments.of(2, -1),
+                Arguments.of(0, 0),
+                Arguments.of(2, 5),
+                Arguments.of(-100, 100),
+                Arguments.of(-100, -100),
+                Arguments.of(44, 0),
+                Arguments.of(-132, 0),
+                Arguments.of(0, -44));
     }
 }
